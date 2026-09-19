@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Soft dark shadow, offset down-right, behind the card -->
+    <path
+        android:pathData="M34,30 h40 a10,10 0 0 1 10,10 v25 a10,10 0 0 1 -10,10 h-40 a10,10 0 0 1 -10,-10 v-25 a10,10 0 0 1 10,-10 z"
+        android:fillColor="#A3B1C6"
+        android:fillAlpha="0.55" />
+
+    <!-- Soft light shadow, offset up-left, behind the card -->
+    <path
+        android:pathData="M30,26 h40 a10,10 0 0 1 10,10 v25 a10,10 0 0 1 -10,10 h-40 a10,10 0 0 1 -10,-10 v-25 a10,10 0 0 1 10,-10 z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.65" />
+
+    <!-- Main card surface -->
+    <path
+        android:pathData="M32,28 h40 a10,10 0 0 1 10,10 v25 a10,10 0 0 1 -10,10 h-40 a10,10 0 0 1 -10,-10 v-25 a10,10 0 0 1 10,-10 z"
+        android:fillColor="#E0E5EC" />
+
+    <!-- Download arrow -->
+    <path
+        android:pathData="M54,40 v22 m0,0 l-9,-9 m9,9 l9,-9"
+        android:strokeColor="#6C63FF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+    <!-- Tray line under the arrow -->
+    <path
+        android:pathData="M45,68 h18"
+        android:strokeColor="#6C63FF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+</vector>

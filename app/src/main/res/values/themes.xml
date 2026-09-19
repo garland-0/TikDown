@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.TikDown" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/neu_background</item>
+        <item name="colorPrimary">@color/neu_accent</item>
+        <item name="colorAccent">@color/neu_accent</item>
+        <item name="android:statusBarColor">@color/neu_background</item>
+    </style>
+
+    <style name="Theme.TikDown.Transparent" parent="Theme.TikDown">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="Theme.TikDown.Dialog" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="colorAccent">@color/neu_accent</item>
+    </style>
+</resources>
