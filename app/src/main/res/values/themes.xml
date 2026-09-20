@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.TikDown" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!-- Forced dark (not DayNight) so the app always matches the intended
+         dark neumorphic look regardless of the device's system theme. -->
+    <style name="Theme.TikDown" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowBackground">@color/neu_background</item>
         <item name="colorPrimary">@color/neu_accent</item>
         <item name="colorAccent">@color/neu_accent</item>
         <item name="android:statusBarColor">@color/neu_background</item>
+        <item name="android:navigationBarColor">@color/neu_background</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="fontFamily">sans-serif-medium</item>
     </style>
 
     <style name="Theme.TikDown.Transparent" parent="Theme.TikDown">
@@ -14,7 +19,8 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-    <style name="Theme.TikDown.Dialog" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+    <style name="Theme.TikDown.Dialog" parent="Theme.MaterialComponents.Dialog.Alert">
         <item name="colorAccent">@color/neu_accent</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 </resources>
