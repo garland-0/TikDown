@@ -47,6 +47,90 @@ class MainActivity : AppCompatActivity() {
 
         requestNotificationPermissionIfNeeded()
         updateFolderLabel()
+        binding.versionLabel.text = "TikDown v${BuildConfig.VERSION_NAME} · by Garland"
+
+        binding.btnChooseFolder.setOnClickListener {
+            folderPicker.launch(null)
+        }
+
+        binding.btnResetFolder.setOnClickListener {
+            Prefs.setCustomFolderUri(this, null)
+            updateFolderLabel()
+            Toast.makeText(this, "Back to default folder", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.btnDownload.setOnClickListener {
+            val text = binding.inputLink.text.toString().trim()
+            val url = Regex("https?://\\S+").find(text)?.value
+            if (url == null) {
+                Toast.makeText(this, "Paste a valid TikTok link first", Toast.LENGTH_SHORT).show()
+            } else {
+                resolveAndDownload(url)
+            }
+        }
+    }
+
+    private fun resolveAndDownload(url: String) {
+        binding.btnDownload.isEnabled = false
+        lifecycleScope.launch {
+            val result = withContext(Dispatchers.IO) { TikTokApi.resolve(url) }
+            binding.btnDownload.isEnabled = true
+            when (result) {
+                is TikTokApi.Result.Video -> {
+                    DownloadService.startVideo(this@MainActivity, result.playUrl)
+                    Toast.makeText(this@MainActivity, "Downloading…", Toast.LENGTH_SHORT).show()
+                }
+                is TikTokApi.Result.Images -> {
+                    ImagePickerDialog.show(this@MainActivity, result.imageUrls) { selected ->
+                        DownloadService.startImages(
+                            this@MainActivity, url, result.imageUrls, selected
+                        )
+                    }
+                }
+                is TikTokApi.Result.Error -> {
+                    Toast.makeText(
+                        this@MainActivity, "Error: ${result.message}", Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+    }
+
+    private fun updateFolderLabel() {
+        val uri = Prefs.getCustomFolderUri(this)
+        binding.folderLabel.text = if (uri != null) {
+            "Custom folder selected"
+        } else {
+            "Default: Downloads/TikDown"
+        }
+    }
+
+    private fun requestNotificationPermissionIfNeeded() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val granted = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.POST_NOTIFICATIONS
+            ) == PackageManager.PERMISSION_GRANTED
+
+            if (!granted) {
+                ActivityCompat.requestPermissions(
+                    this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), 1001
+                )
+            }
+        }
+    }
+}            Prefs.setCustomFolderUri(this, uri)
+            updateFolderLabel()
+            Toast.makeText(this, "Folder updated", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        requestNotificationPermissionIfNeeded()
+        updateFolderLabel()
 
         binding.btnChooseFolder.setOnClickListener {
             folderPicker.launch(null)
