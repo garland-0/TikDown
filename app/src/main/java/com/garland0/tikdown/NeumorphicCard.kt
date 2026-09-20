@@ -24,7 +24,7 @@ class NeumorphicCard @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     private val density = resources.displayMetrics.density
-    private val cornerRadius = 20f * density
+    private val cornerRadius = 28f * density
     private val margin = 10f * density
     private val blurRadius = 10f * density
     private val shadowOffset = 6f * density
