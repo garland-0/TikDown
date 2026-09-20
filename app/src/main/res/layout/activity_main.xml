@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="24dp">
 
@@ -25,7 +25,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="28dp">
 
             <com.garland0.tikdown.NeumorphicCard
                 android:layout_width="match_parent"
@@ -35,6 +35,110 @@
                 android:id="@+id/inputLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="36dp"
+                android:background="@android:color/transparent"
+                android:hint="Paste TikTok link here"
+                android:inputType="textUri"
+                android:maxLines="2"
+                android:textColor="@color/neu_text_primary"
+                android:textColorHint="@color/neu_text_secondary"
+                android:textSize="15sp" />
+        </FrameLayout>
+
+        <!-- Primary action: solid accent pill, sized to its own label -->
+        <TextView
+            android:id="@+id/btnDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/btn_primary_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="16dp"
+            android:text="Download"
+            android:textColor="@color/neu_on_accent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/folderLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="14dp"
+            android:text="Default: Downloads/TikDown"
+            android:textColor="@color/neu_text_secondary"
+            android:textSize="13sp" />
+
+        <!-- Secondary action: neumorphic pill, sized to its own label -->
+        <FrameLayout
+            android:id="@+id/btnChooseFolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <com.garland0.tikdown.NeumorphicCard
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="28dp"
+                android:paddingVertical="14dp"
+                android:text="Change Storage Folder"
+                android:textColor="@color/neu_text_primary"
+                android:textSize="14sp" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/btnResetFolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="Reset to default"
+            android:textColor="@color/neu_accent_secondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="Tip: share a TikTok video or photo post to TikDown from the share sheet to download it directly."
+            android:textColor="@color/neu_text_secondary"
+            android:textSize="12sp" />
+
+        <!-- Spacer pushes the version line to the bottom of the scroll area -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/versionLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="TikDown · by Garland"
+            android:textColor="@color/neu_text_secondary"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+</ScrollView>                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="36dp"
                 android:background="@android:color/transparent"
