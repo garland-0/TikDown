@@ -20,12 +20,21 @@
     <!-- Main card surface -->
     <path
         android:pathData="M32,28 h40 a10,10 0 0 1 10,10 v25 a10,10 0 0 1 -10,10 h-40 a10,10 0 0 1 -10,-10 v-25 a10,10 0 0 1 10,-10 z"
-        android:fillColor="#E0E5EC" />
+        android:fillColor="#1C1D21" />
 
-    <!-- Download arrow -->
+    <!-- Download arrow, offset in TikTok cyan for the glitch-layer effect -->
     <path
-        android:pathData="M54,40 v22 m0,0 l-9,-9 m9,9 l9,-9"
-        android:strokeColor="#6C63FF"
+        android:pathData="M52.5,40 v22 m0,0 l-9,-9 m9,9 l9,-9"
+        android:strokeColor="#25F4EE"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+    <!-- Download arrow, main layer in TikTok pink -->
+    <path
+        android:pathData="M55.5,40 v22 m0,0 l-9,-9 m9,9 l9,-9"
+        android:strokeColor="#FE2C55"
         android:strokeWidth="5"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
@@ -34,7 +43,12 @@
     <!-- Tray line under the arrow -->
     <path
         android:pathData="M45,68 h18"
-        android:strokeColor="#6C63FF"
+        android:strokeColor="#FE2C55"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+</vector>        android:strokeColor="#6C63FF"
         android:strokeWidth="5"
         android:strokeLineCap="round"
         android:fillColor="#00000000" />
